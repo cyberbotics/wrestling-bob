@@ -38,15 +38,14 @@ class Bob (Robot):
         self.library.play('Stand')
         
         # to control a motor, we use the setPosition() function:
-        self.RShoulderPitch.setPosition(1.57)  # arms in front, zombie mode
-        self.LShoulderPitch.setPosition(1.57)
+        self.RShoulderPitch.setPosition(1.3)
+        self.LShoulderPitch.setPosition(1.3)
         # for more motor control functions, see the documentation: https://cyberbotics.com/doc/reference/motor
         # to see the list of available devices, see the NAO documentation: https://cyberbotics.com/doc/guide/nao
 
         time_step = int(self.getBasicTimeStep())
         while self.step(time_step) != -1:
-            if self.library.get('Stand').isOver(): # When the robot is done standing for stabilization, it moves forwards
-                self.library.play('Forwards50')
+            pass
 
 
 # create the Robot instance and run main loop
