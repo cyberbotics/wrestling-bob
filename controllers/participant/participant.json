@@ -1,5 +1,5 @@
 {
-  "name": "My name",
-  "description": "Description of my robot controller program.",
-  "country": "ISO 3166-1 alpha-2 country code"
+  "name": "Bob",
+  "description": "Demonstrates how to use the Motion_library class to play a motion file. Beats Alice by moving forwards and therefore having a higher coverage.",
+  "country": "CH"
 }

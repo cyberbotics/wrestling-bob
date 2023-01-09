@@ -1,4 +1,4 @@
-# Copyright 1996-2022 Cyberbotics Ltd.
+# Copyright 1996-2023 Cyberbotics Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,22 +12,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Minimalist controller example for the Robot Wrestling Tournament.
-   Demonstrates how to play a simple motion file."""
+"""
+Demonstrates how to use the Motion_library class to play a motion file.
+Beats Alice by moving forwards and therefore having a higher coverage.
+"""
 
-from controller import Robot, Motion
+import sys
+from controller import Robot
+sys.path.append('..') # adding the utils folder to get access to some custom helper functions, have a look at it
+from utils.motion import Motion_library
 
-
-class Wrestler (Robot):
+class Bob (Robot):
+    def __init__(self):
+        super().__init__()
+        # to load all the motions from the motion folder, we use the Motion_library class:
+        self.library = Motion_library()
+        
+        # we initialize the shoulder pitch motors using the Robot.getDevice() function:
+        self.RShoulderPitch = self.getDevice("RShoulderPitch")
+        self.LShoulderPitch = self.getDevice("LShoulderPitch")
     def run(self):
-        motion = Motion('../motions/Backwards.motion')  # look into this text file, it's easy to understand
-        motion.setLoop(True)
-        motion.play()
-        time_step = int(self.getBasicTimeStep())  # retrieves the WorldInfo.basicTimeTime (ms) from the world file
-        while self.step(time_step) != -1:  # runs the hand wave motion in a loop until Webots quits
+        # to play a motion from the library, we use the play() function as follows:
+        self.library.play('Forwards50')
+        
+        # to control a motor, we use the setPosition() function:
+        self.RShoulderPitch.setPosition(1.57)  # arms in front, zombie mode
+        self.LShoulderPitch.setPosition(1.57)
+        # for more motor control functions, see the documentation: https://cyberbotics.com/doc/reference/motor
+        # to see the list of available devices, see the NAO documentation: https://cyberbotics.com/doc/guide/nao
+
+        time_step = int(self.getBasicTimeStep())
+        while self.step(time_step) != -1:
             pass
 
 
 # create the Robot instance and run main loop
-wrestler = Wrestler()
+wrestler = Bob()
 wrestler.run()
