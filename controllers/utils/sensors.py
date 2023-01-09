@@ -46,25 +46,3 @@ class Accelerometer():
         values = self.get_values()
         self.average.update_average(values)
         return self.get_average()
-
-class IMU():
-    """Class that provides an interface to the IMU sensor."""
-
-    def __init__(self, device, time_step):
-        self.device = device
-        self.device.enable(time_step)
-
-    def getRollPitchYaw(self):
-        """Returns the current IMU values."""
-        return self.device.getRollPitchYaw()
-
-class GPS():
-    """Class that provides an interface to the GPS sensor."""
-
-    def __init__(self, device, time_step):
-        self.device = device
-        self.device.enable(time_step)
-
-    def getValues(self):
-        """Returns the current GPS values."""
-        return self.device.getValues()
