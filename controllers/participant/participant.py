@@ -35,7 +35,7 @@ class Bob (Robot):
         self.LShoulderPitch = self.getDevice("LShoulderPitch")
     def run(self):
         # to play a motion from the library, we use the play() function as follows:
-        self.library.play('Forwards50')
+        self.library.play('Stand')
         
         # to control a motor, we use the setPosition() function:
         self.RShoulderPitch.setPosition(1.57)  # arms in front, zombie mode
@@ -45,7 +45,8 @@ class Bob (Robot):
 
         time_step = int(self.getBasicTimeStep())
         while self.step(time_step) != -1:
-            pass
+            if self.library.get('Stand').isOver(): # When the robot is done standing for stabilization, it moves forwards
+                self.library.play('Forwards50')
 
 
 # create the Robot instance and run main loop
