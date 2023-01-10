@@ -45,4 +45,6 @@ wrestler = Bob()
 wrestler.run()
 ```
 
+[Charlie](https://github.com/cyberbotics/wrestling-charlie) is a more advanced robot controller able to win against Bob.
+
 [1]: https://webots.cloud/run?version=R2022b&url=https%3A%2F%2Fgithub.com%2Fcyberbotics%2Fwrestling%2Fblob%2Fmain%2Fworlds%2Fwrestling.wbt&type=competition "Leaderboard"
