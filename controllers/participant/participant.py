@@ -33,10 +33,8 @@ class Bob (Robot):
         # we initialize the shoulder pitch motors using the Robot.getDevice() function:
         self.RShoulderPitch = self.getDevice("RShoulderPitch")
         self.LShoulderPitch = self.getDevice("LShoulderPitch")
+
     def run(self):
-        # to play a motion from the library, we use the play() function as follows:
-        self.library.play('Stand')
-        
         # to control a motor, we use the setPosition() function:
         self.RShoulderPitch.setPosition(1.3)
         self.LShoulderPitch.setPosition(1.3)
@@ -45,7 +43,9 @@ class Bob (Robot):
 
         time_step = int(self.getBasicTimeStep())
         while self.step(time_step) != -1:
-            pass
+            if self.getTime() == 1: # We wait a bit for the robot to stabilise
+                # to play a motion from the library, we use the play() function as follows:
+                self.library.play('Forwards50')
 
 
 # create the Robot instance and run main loop
