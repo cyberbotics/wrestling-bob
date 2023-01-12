@@ -6,7 +6,7 @@
 
 This controller is a simple example of how to use the Motion_library class from the [motion.py](./controllers/utils/motion.py) module to load all motion files from the folder [motions](./controllers/motions) and play one of them.
 
-It beats Alice by moving forwards and therefore having a higher coverage.
+It beats [Alice](https://github.com/cyberbotics/wrestling-alice) by moving forwards and therefore having a higher coverage.
 
 Here is the [participant.py](./controllers/participant/participant.py) file:
 
