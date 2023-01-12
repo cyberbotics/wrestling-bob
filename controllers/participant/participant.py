@@ -20,14 +20,15 @@ Beats Alice by moving forwards and therefore having a higher coverage.
 import sys
 from controller import Robot
 sys.path.append('..') # adding the utils folder to get access to some custom helper functions, have a look at it
-from utils.motion import Motion_library
+from utils.motion_library import MotionLibrary
+
 
 class Bob (Robot):
     def __init__(self):
         super().__init__()
         # to load all the motions from the motion folder, we use the Motion_library class:
-        self.library = Motion_library()
-        
+        self.library = MotionLibrary()
+
         # we initialize the shoulder pitch motors using the Robot.getDevice() function:
         self.RShoulderPitch = self.getDevice("RShoulderPitch")
         self.LShoulderPitch = self.getDevice("LShoulderPitch")
