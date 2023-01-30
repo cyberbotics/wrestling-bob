@@ -1,5 +1,5 @@
 {
-  "name": "Bob",
+  "name": "Bob (Python)",
   "description": "Demonstrates how to use the Motion_library class to play a motion file. Beats Alice by moving forwards and therefore having a higher coverage.",
   "country": "CH"
 }
